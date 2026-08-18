@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Skills</th>
+      <th>Resume</th>
+      <th>Status</th>
+      <th>ApplicationId</th>
+      <th>JobId</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let applicant of applicants">
+      <td>{{applicant.name}}</td>
+      <td>{{applicant.email}}</td>
+      <td>{{applicant.skills}}</td>
+      <td>
+        <button>View Resume</button>
+      </td>
+      <td>{{applicant.status}}</td>
+      <td>{{applicant.applicationId}}</td>
+      <td>{{applicant.jobId}}</td>
+      <td>
+        <button
+          (click)="openScheduleInterview(applicant)">
+          Schedule Interview
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

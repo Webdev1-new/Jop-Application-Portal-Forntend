@@ -1,0 +1,281 @@
+<form [formGroup]="scheduleInterviewForm" class="container">
+
+    <mat-card>
+
+        <mat-card-header>
+            <mat-card-title>
+                Interview Schedule & Feedback
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <!-- Interview Details -->
+
+            <div class="row">
+
+                      <mat-form-field appearance="outline">
+                       <mat-label>Applicant ID</mat-label>
+                         <input matInput formControlName="applicantId" readonly>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline">
+                       <mat-label>Job ID</mat-label>
+                        <input matInput formControlName="jobId" readonly>
+                      </mat-form-field>
+
+                       <mat-form-field appearance="outline">
+                       <mat-label>Applicant Name</mat-label>
+                        <input matInput formControlName="applicantName" readonly>
+                       </mat-form-field>
+
+                       <mat-form-field appearance="outline">
+                       <mat-label>Applicant Email</mat-label>
+                       <input matInput formControlName="applicantEmail" readonly>
+                       </mat-form-field>
+                      
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Interview Round</mat-label>
+                    <mat-select formControlName="interviewRound">
+                        <mat-option value="TECHNICAL">Technical</mat-option>
+                        <mat-option value="MANAGERIAL">Managerial</mat-option>
+                        <mat-option value="HR">HR</mat-option>
+                        <mat-option value="FINAL">Final</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="interviewDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Time</mat-label>
+                    <input matInput type="time" formControlName="interviewTime">
+                </mat-form-field>
+
+            </div>
+
+            <div class="row">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Interview Mode</mat-label>
+                    <mat-select formControlName="interviewMode">
+                        <mat-option value="ONLINE">Online</mat-option>
+                        <mat-option value="OFFLINE">Offline</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Meeting Link</mat-label>
+                    <input matInput formControlName="meetingLink">
+                </mat-form-field>
+
+            </div>
+
+            <div class="row">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Interviewer Name</mat-label>
+                    <input matInput formControlName="interviewerName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Interviewer Email</mat-label>
+                    <input matInput formControlName="interviewerEmail">
+                </mat-form-field>
+
+            </div>
+
+            <!-- Technical Feedback -->
+
+            <mat-accordion>
+
+                <mat-expansion-panel [expanded]="true" formGroupName="technicalFeedback">
+
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Technical Feedback
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="row">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reviewer Name</mat-label>
+                            <input matInput formControlName="reviewerName">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Rating</mat-label>
+                            <mat-select formControlName="rating">
+                                <mat-option *ngFor="let rating of [1,2,3,4,5]" [value]="rating">
+                                    {{rating}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="row">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Result</mat-label>
+                            <mat-select formControlName="result">
+                                <mat-option value="PASS">Pass</mat-option>
+                                <mat-option value="FAIL">Fail</mat-option>
+                                <mat-option value="HOLD">Hold</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Feedback</mat-label>
+                        <textarea matInput rows="4" formControlName="feedback"></textarea>
+                    </mat-form-field>
+
+                </mat-expansion-panel>
+
+                <!-- Managerial Feedback -->
+
+                <mat-expansion-panel formGroupName="managerialFeedback">
+
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Managerial Feedback
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="row">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reviewer Name</mat-label>
+                            <input matInput formControlName="reviewerName">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Rating</mat-label>
+                            <mat-select formControlName="rating">
+                                <mat-option *ngFor="let rating of [1,2,3,4,5]" [value]="rating">
+                                    {{rating}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Result</mat-label>
+                        <mat-select formControlName="result">
+                            <mat-option value="PASS">Pass</mat-option>
+                            <mat-option value="FAIL">Fail</mat-option>
+                            <mat-option value="HOLD">Hold</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Feedback</mat-label>
+                        <textarea matInput rows="4" formControlName="feedback"></textarea>
+                    </mat-form-field>
+
+                </mat-expansion-panel>
+
+                <!-- HR Feedback -->
+
+                <mat-expansion-panel formGroupName="hrFeedback">
+
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            HR Feedback
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="row">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reviewer Name</mat-label>
+                            <input matInput formControlName="reviewerName">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Rating</mat-label>
+                            <mat-select formControlName="rating">
+                                <mat-option *ngFor="let rating of [1,2,3,4,5]" [value]="rating">
+                                    {{rating}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Result</mat-label>
+                        <mat-select formControlName="result">
+                            <mat-option value="PASS">Pass</mat-option>
+                            <mat-option value="FAIL">Fail</mat-option>
+                            <mat-option value="HOLD">Hold</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Feedback</mat-label>
+                        <textarea matInput rows="4" formControlName="feedback"></textarea>
+                    </mat-form-field>
+
+                </mat-expansion-panel>
+
+            </mat-accordion>
+
+            <!-- Final Decision -->
+
+            <mat-divider class="mt-3"></mat-divider>
+
+            <div class="row mt-3">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Interview Status</mat-label>
+                    <mat-select formControlName="interviewStatus">
+                        <mat-option value="SCHEDULED">Scheduled</mat-option>
+                        <mat-option value="COMPLETED">Completed</mat-option>
+                        <mat-option value="CANCELLED">Cancelled</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Final Result</mat-label>
+                    <mat-select formControlName="finalResult">
+                        <mat-option value="PENDING">Pending</mat-option>
+                        <mat-option value="SELECTED">Selected</mat-option>
+                        <mat-option value="REJECTED">Rejected</mat-option>
+                        <mat-option value="HOLD">Hold</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Remarks</mat-label>
+                <textarea matInput rows="3" formControlName="remarks"></textarea>
+            </mat-form-field>
+
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+
+            <button mat-raised-button color="primary" (click)="submitInterviewFeedback()">
+                Save Feedback
+            </button>
+
+            <button mat-raised-button color="accent" (click)="updateInterviewFeedback()">
+                Update
+            </button>
+
+        </mat-card-actions>
+
+    </mat-card>
+
+</form>

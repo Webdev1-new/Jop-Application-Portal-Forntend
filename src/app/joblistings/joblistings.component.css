@@ -1,0 +1,117 @@
+mat-toolbar {
+  font-size: 22px;
+  font-weight: 600;
+  padding-left: 20px;
+}
+
+/* Main Page Container */
+.job-page-container {
+  padding: 25px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 64px);
+}
+
+/* Search Card */
+.search-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Search Title */
+mat-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3f51b5;
+}
+
+/* Search Row */
+.search-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Search Fields */
+.search-field {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Search Button */
+.search-btn {
+  margin-top: 15px;
+  height: 45px;
+  width: 180px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+/* Job List Container */
+.job-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Job Card */
+.job-card {
+  padding: 15px;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.job-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Job Details */
+.job-details p {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+/* Card Actions */
+mat-card-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 10px;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+
+  .job-page-container {
+    padding: 15px;
+  }
+
+  .search-row {
+    flex-direction: column;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  mat-card-actions {
+    flex-direction: column;
+  }
+
+  mat-card-actions button {
+    width: 100%;
+  }
+
+}

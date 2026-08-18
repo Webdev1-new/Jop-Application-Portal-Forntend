@@ -1,0 +1,201 @@
+<mat-toolbar color="primary">
+  Employer Portal
+</mat-toolbar>
+
+<div class="job-container">
+
+  <mat-card>
+
+    <mat-card-title>
+      Post New Job
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <form [formGroup]="jobPostForm" (ngSubmit)="postJob()">
+
+        <!-- Job Id -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Job ID</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="jobId">
+
+          <mat-error
+            *ngIf="jobPostForm.get('jobId')?.hasError('required')">
+
+            Job ID is required
+
+          </mat-error>
+
+        </mat-form-field>
+
+        <!-- Job Title -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Job Title</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="jobTitle">
+
+          <mat-error
+            *ngIf="jobPostForm.get('jobTitle')?.hasError('required')">
+
+            Job Title is required
+
+          </mat-error>
+
+        </mat-form-field>
+
+        <!-- Company Name -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Company Name</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="companyName">
+
+          <mat-error
+            *ngIf="jobPostForm.get('companyName')?.hasError('required')">
+
+            Company Name is required
+
+          </mat-error>
+
+        </mat-form-field>
+
+        <!-- Job Location -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Job Location</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="location">
+
+        </mat-form-field>
+
+        <!-- Employment Type -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Employment Type</mat-label>
+
+          <mat-select formControlName="employmentType">
+
+            <mat-option value="FULL_TIME">
+              Full Time
+            </mat-option>
+
+            <mat-option value="PART_TIME">
+              Part Time
+            </mat-option>
+
+            <mat-option value="CONTRACT">
+              Contract
+            </mat-option>
+
+            <mat-option value="REMOTE">
+              Remote
+            </mat-option>
+
+          </mat-select>
+
+        </mat-form-field>
+
+        <!-- Experience -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Experience Required</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="experience">
+
+        </mat-form-field>
+
+        <!-- Salary -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Salary Package</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="salary">
+
+        </mat-form-field>
+
+        <!-- Skills -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Required Skills</mat-label>
+
+          <input
+            matInput
+            type="text"
+            formControlName="skills"
+            placeholder="Java, Spring Boot, Angular">
+
+        </mat-form-field>
+
+        <!-- Job Description -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Job Description</mat-label>
+
+          <textarea
+            matInput
+            rows="6"
+            formControlName="jobDescription">
+          </textarea>
+
+        </mat-form-field>
+
+        <!-- Last Date -->
+        <mat-form-field appearance="outline" class="full-width">
+
+          <mat-label>Application Deadline</mat-label>
+
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="lastDate">
+
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker">
+          </mat-datepicker-toggle>
+
+          <mat-datepicker #picker></mat-datepicker>
+
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="submit-btn"
+          [disabled]="jobPostForm.invalid"
+          >
+
+          Post Job
+
+        </button>
+
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

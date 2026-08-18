@@ -1,0 +1,375 @@
+<div id="employerRegistration" *ngIf="isemployer">
+<form [formGroup]="employerRegistrationForm" class="registration-form">
+
+  <mat-card>
+
+    <mat-card-title>
+      Employer Registration
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <!-- Username -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="username">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('username')?.hasError('required')">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+
+        <input
+          matInput
+          type="password"
+          formControlName="password">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Employer ID -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Employer ID</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="employerId">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('employerId')?.hasError('required')">
+          Employer ID is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Company Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Company Name</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="companyName">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('companyName')?.hasError('required')">
+          Company Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email ID</mat-label>
+
+        <input
+          matInput
+          type="email"
+          formControlName="emailId">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('emailId')?.hasError('required')">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Mobile Number -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Mobile Number</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="mobileno">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('mobileno')?.hasError('required')">
+          Mobile Number is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Phone Number -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Phone Number</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="phoneno">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('phoneno')?.hasError('required')">
+          Phone Number is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Company Address -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Company Address</mat-label>
+
+        <textarea
+          matInput
+          rows="4"
+          formControlName="companyAddress">
+        </textarea>
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('companyAddress')?.hasError('required')">
+          Company Address is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- State -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>State</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="state">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('state')?.hasError('required')">
+          State is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Country Code -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Country Code</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="countrycode">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('countrycode')?.hasError('required')">
+          Country Code is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- GST Number -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>GST Number</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="gstnumber">
+
+        <mat-error
+          *ngIf="employerRegistrationForm.get('gstnumber')?.hasError('required')">
+          GST Number is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="employerRegistrationForm.invalid"
+        (click)="registerEmployer()">
+        Register
+      </button> &nbsp;
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="registerJobseekerForm()">              
+        JobseekerRegistration
+      </button> &nbsp;
+
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="employerRegistrationForm.invalid"
+        (click)="loginUser()">              
+        Signin?
+      </button>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</form>
+</div>
+
+<div id="jobseekerregistrationform" *ngIf="!isemployer">
+    <form [formGroup]="jobSeekerRegistrationForm" class="registration-form">
+
+  <mat-card>
+
+    <mat-card-title>
+      Job Seeker Registration
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <!-- Username -->
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Fullname</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="username">
+
+        <mat-error
+          *ngIf="jobSeekerRegistrationForm.get('username')?.hasError('required')">
+
+          Username is required
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Password</mat-label>
+
+        <input
+          matInput
+          type="password"
+          formControlName="password">
+
+        <mat-error
+          *ngIf="jobSeekerRegistrationForm.get('password')?.hasError('required')">
+
+          Password is required
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Resume Upload -->
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Resume</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="resume">
+
+        <mat-error
+          *ngIf="jobSeekerRegistrationForm.get('resume')?.hasError('required')">
+
+          Resume is required
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Phone Number -->
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Phone Number</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="phoneno">
+
+        <mat-error
+          *ngIf="jobSeekerRegistrationForm.get('phoneno')?.hasError('required')">
+
+          Phone Number is required
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Notification -->
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Notification Preference</mat-label>
+
+        <mat-select formControlName="notification">
+
+          <mat-option value="EMAIL">
+            Email
+          </mat-option>
+
+          <mat-option value="SMS">
+            SMS
+          </mat-option>
+
+          <mat-option value="BOTH">
+            Both
+          </mat-option>
+
+        </mat-select>
+
+        <mat-error
+          *ngIf="jobSeekerRegistrationForm.get('notification')?.hasError('required')">
+
+          Notification preference is required
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Address -->
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Address</mat-label>
+
+        <textarea
+          matInput
+          rows="4"
+          formControlName="address">
+        </textarea>
+
+        <mat-error
+          *ngIf="jobSeekerRegistrationForm.get('address')?.hasError('required')">
+
+          Address is required
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="jobSeekerRegistrationForm.invalid"
+        (click)="registerApplicant()">
+        Register
+      </button> &nbsp;
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="registerEmployerScreen()">              
+        EmployerRegistration
+      </button> &nbsp;
+
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="employerRegistrationForm.invalid"
+        (click)="loginUser()">              
+        Signin?
+      </button> 
+
+    </mat-card-content>
+
+  </mat-card>
+
+</form>
+</div>

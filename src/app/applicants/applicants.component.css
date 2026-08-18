@@ -1,0 +1,136 @@
+/* Page Container */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Table Header */
+thead {
+  background-color: #1976d2;
+  color: white;
+}
+
+thead th {
+  padding: 16px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Table Body */
+tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Alternate Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Hover Effect */
+tbody tr:hover {
+  background-color: #eef5ff;
+  transition: 0.3s;
+}
+
+/* Common Button Style */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* Resume Button */
+td button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+td button:first-child:hover {
+  background-color: #218838;
+}
+
+/* Schedule Interview Button */
+td:last-child button {
+  background-color: #1976d2;
+  color: white;
+}
+
+td:last-child button:hover {
+  background-color: #1259a7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: white;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+  td:nth-child(1)::before {
+    content: "Name";
+    font-weight: bold;
+  }
+
+  td:nth-child(2)::before {
+    content: "Email";
+    font-weight: bold;
+  }
+
+  td:nth-child(3)::before {
+    content: "Resume";
+    font-weight: bold;
+  }
+
+  td:nth-child(4)::before {
+    content: "Status";
+    font-weight: bold;
+  }
+
+  td:nth-child(5)::before {
+    content: "Action";
+    font-weight: bold;
+  }
+}

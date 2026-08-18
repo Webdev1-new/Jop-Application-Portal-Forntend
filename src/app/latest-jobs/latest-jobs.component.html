@@ -1,0 +1,269 @@
+<mat-toolbar color="primary">
+    <span>Job Portal</span>
+
+    <span class="spacer"></span>
+
+    <button mat-raised-button color="accent">
+        Latest Jobs
+    </button>
+</mat-toolbar>
+
+<div class="container">
+
+    <!-- Search Section -->
+
+    <mat-card class="search-card">
+
+        <mat-card-header>
+            <mat-card-title>
+                Search Latest Jobs
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <form [formGroup]="searchForm">
+
+                <div class="search-container">
+
+                    <!-- Technology -->
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Technology</mat-label>
+
+                        <input
+                                matInput
+                                placeholder="Java, Angular, React..."
+                                formControlName="technology">
+                    </mat-form-field>
+
+                    <!-- Experience -->
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Experience</mat-label>
+
+                        <mat-select formControlName="experience">
+
+                            <mat-option value="">
+                                Any
+                            </mat-option>
+
+                            <mat-option value="1">1+ Years</mat-option>
+                            <mat-option value="2">2+ Years</mat-option>
+                            <mat-option value="3">3+ Years</mat-option>
+                            <mat-option value="5">5+ Years</mat-option>
+                            <mat-option value="8">8+ Years</mat-option>
+
+                        </mat-select>
+
+                    </mat-form-field>
+
+                    <!-- Location -->
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Location</mat-label>
+
+                        <input
+                                matInput
+                                placeholder="Bangalore"
+                                formControlName="location">
+
+                    </mat-form-field>
+
+                    <!-- Search Button -->
+
+                    <button
+                            mat-raised-button
+                            color="primary"
+                            (click)="searchJobs()">
+
+                        <mat-icon>search</mat-icon>
+
+                        Search
+
+                    </button>
+
+                    <button
+                            mat-stroked-button
+                            color="warn"
+                            (click)="resetSearch()">
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Header -->
+
+    <div class="header-section">
+
+        <h2>
+            Latest Jobs
+        </h2>
+
+        <span class="job-count">
+
+            {{jobs.length}} Jobs Found
+
+        </span>
+
+    </div>
+
+    <!-- Job Cards -->
+
+    <mat-card
+            class="job-card"
+            *ngFor="let job of jobs">
+
+        <div class="job-container">
+
+            <!-- Company Button -->
+
+            <div class="company-section">
+
+                <button
+                        mat-fab
+                        color="primary"
+                        (click)="viewCompany(job.companyName)">
+
+                    <mat-icon>
+
+                        business
+
+                    </mat-icon>
+
+                </button>
+
+            </div>
+
+            <!-- Job Details -->
+
+            <div class="job-details">
+
+                <h2 class="job-title">
+
+                    {{job.jobTitle}}
+
+                </h2>
+
+                <h3 class="company-name">
+
+                    {{job.companyName}}
+
+                </h3>
+
+                <div class="job-information">
+
+                    <span>
+
+                        <mat-icon>location_on</mat-icon>
+
+                        {{job.location}}
+
+                    </span>
+
+                    <span>
+
+                        <mat-icon>work</mat-icon>
+
+                        {{job.experience}} Years
+
+                    </span>
+
+                    <span>
+
+                        <mat-icon>schedule</mat-icon>
+
+                        {{job.employmentType}}
+
+                    </span>
+
+                </div>
+
+                <div class="skills">
+
+                    <mat-chip-set>
+
+                        <mat-chip
+                                >
+
+                            {{job.skills}}
+
+                        </mat-chip>
+
+                    </mat-chip-set>
+
+                </div>
+
+                <p class="description">
+
+                    {{job.jobDescription}}
+
+                </p>
+
+                <p class="posted-date">
+
+                    <mat-icon>
+
+                        calendar_today
+
+                    </mat-icon>
+
+                    Posted :
+
+                    {{job.jobPostedDate | date}}
+
+                </p>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="action-section">
+
+                <button
+                        mat-raised-button
+                        color="primary">
+
+                    Apply Now
+
+                </button>
+
+                <button
+                        mat-stroked-button
+                        color="accent">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </mat-card>
+
+    <!-- Pagination -->
+
+   <!-- <mat-paginator
+
+            [length]="totalJobs"
+
+            [pageSize]="10"
+
+            [pageSizeOptions]="[5,10,20,50]"
+
+            showFirstLastButtons
+
+            (page)="pageChanged($event)">
+
+    </mat-paginator> -->
+
+</div>

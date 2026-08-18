@@ -1,0 +1,173 @@
+.container{
+
+    width:90%;
+    margin:auto;
+    padding:25px 0;
+
+}
+
+.spacer{
+
+    flex:1;
+
+}
+
+.search-card{
+
+    margin-bottom:30px;
+
+}
+
+.search-container{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+
+}
+
+.search-container mat-form-field{
+
+    flex:1;
+    min-width:220px;
+
+}
+
+.header-section{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+
+}
+
+.job-count{
+
+    font-weight:600;
+    color:#666;
+
+}
+
+.job-card{
+
+    margin-bottom:18px;
+    transition:.3s;
+
+}
+
+.job-card:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.job-container{
+
+    display:flex;
+    gap:25px;
+
+}
+
+.company-section{
+
+    display:flex;
+    align-items:flex-start;
+
+}
+
+.job-details{
+
+    flex:1;
+
+}
+
+.job-title{
+
+    margin:0;
+
+}
+
+.company-name{
+
+    color:#1976d2;
+    margin-top:6px;
+
+}
+
+.job-information{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    margin:15px 0;
+
+}
+
+.job-information span{
+
+    display:flex;
+    align-items:center;
+    gap:5px;
+
+}
+
+.skills{
+
+    margin:15px 0;
+
+}
+
+.description{
+
+    margin-top:15px;
+    color:#555;
+
+}
+
+.posted-date{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#777;
+
+}
+
+.action-section{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    justify-content:center;
+
+}
+
+mat-paginator{
+
+    margin-top:30px;
+
+}
+
+@media(max-width:900px){
+
+.job-container{
+
+    flex-direction:column;
+
+}
+
+.action-section{
+
+    width:100%;
+
+}
+
+.action-section button{
+
+    width:100%;
+
+}
+
+}

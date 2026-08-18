@@ -1,0 +1,140 @@
+<mat-toolbar color="primary">
+  Job Portal
+</mat-toolbar>
+
+<div class="job-page-container">
+
+  <!-- Search Section -->
+  <mat-card class="search-card">
+
+    <mat-card-title>
+      Search Jobs
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <form [formGroup]="searchForm">
+
+        <div class="search-row">
+
+          <!-- Company -->
+          <mat-form-field appearance="outline" class="search-field">
+
+            <mat-label>Company</mat-label>
+
+            <input
+              matInput
+              type="text"
+              formControlName="company"
+              placeholder="Search by company">
+
+          </mat-form-field>
+
+          <!-- Technology -->
+          <mat-form-field appearance="outline" class="search-field">
+
+            <mat-label>Technology</mat-label>
+
+            <input
+              matInput
+              type="text"
+              formControlName="technology"
+              placeholder="Java, Angular, React">
+
+          </mat-form-field>
+
+          <!-- Experience -->
+          <mat-form-field appearance="outline" class="search-field">
+
+            <mat-label>Experience</mat-label>
+
+            <input
+              matInput
+              type="text"
+              formControlName="experience"
+              placeholder="2 Years">
+
+          </mat-form-field>
+
+        </div>
+
+        <!-- Search Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          class="search-btn"
+          (click)="searchJobs()">
+
+          Search Jobs
+
+        </button>
+
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+
+  <!-- Job Listings -->
+  <div class="job-list-container">
+
+    <!-- Job Card -->
+    <mat-card class="job-card" *ngFor="let job of jobs">
+
+      <mat-card-header>
+
+        <mat-card-title>
+          <a (click)="jobdetails(job.jobId)" >{{ job.jobTitle }} </a>
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          {{ job.companyName }}
+        </mat-card-subtitle>
+
+      </mat-card-header>
+
+      <mat-card-content>
+
+        <div class="job-details">
+          <p>
+            <strong>Experience:</strong>
+            {{ job.experience }}
+          </p>
+
+          <p>
+            <strong>Location:</strong>
+            {{ job.location }}
+          </p>
+
+          <p>
+            <strong>Salary:</strong>
+            {{ job.salary }}
+          </p>
+
+          <p>
+            <strong>Description:</strong>
+            {{ job.jobDescription }}
+          </p>
+
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-stroked-button
+          color="accent"
+          (click)="jobdetails(job.jobId)">
+
+          View Details
+
+        </button>
+
+      </mat-card-actions>
+
+    </mat-card>
+
+  </div>
+
+</div>

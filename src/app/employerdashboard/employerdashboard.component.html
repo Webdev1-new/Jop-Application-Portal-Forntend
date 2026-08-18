@@ -1,0 +1,148 @@
+<mat-toolbar color="primary" class="toolbar">
+
+  <span>Employer Dashboard</span>
+
+  <span class="spacer"></span>
+
+</mat-toolbar>
+
+<div class="dashboard-container">
+
+  <!-- Sidebar -->
+  <mat-card class="sidebar">
+
+    <button mat-button class="menu-button">
+      Dashboard
+    </button>
+
+    <button mat-button class="menu-button">
+      Post Job
+    </button>
+
+    <button mat-button class="menu-button">
+      Manage Jobs
+    </button>
+
+    <button mat-button class="menu-button">
+      Applicants
+    </button>
+
+    <button mat-button class="menu-button">
+      Profile
+    </button>
+
+  </mat-card>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Welcome -->
+    <mat-card class="welcome-card">
+
+      <h2>
+        Welcome Employer
+      </h2>
+
+      <p>
+        Manage jobs and applicants from your dashboard.
+      </p>
+
+    </mat-card>
+
+    <!-- Statistics -->
+    <div class="stats-container">
+
+      <mat-card class="stat-card">
+
+        <h3>Total Jobs</h3>
+
+        <h1>
+          {{ totalJobs }}
+        </h1>
+
+      </mat-card>
+
+      <mat-card class="stat-card">
+
+        <h3>Total Applicants</h3>
+
+        <h1>
+          {{ totalApplicants }}
+        </h1>
+
+      </mat-card>
+
+      <mat-card class="stat-card">
+
+        <h3>Active Jobs</h3>
+
+        <h1>
+          {{ activeJobs }}
+        </h1>
+
+      </mat-card>
+
+    </div>
+
+    <!-- Posted Jobs -->
+    <mat-card class="jobs-card">
+
+      <div class="job-header">
+
+        <h2>
+          Posted Jobs
+        </h2>
+
+        <button
+          mat-raised-button
+          color="primary"
+          routerLink ="/postjob">         
+          Post New Job
+        </button>
+
+      </div>
+
+      <table class="job-table">
+
+        <thead>
+
+          <tr>
+            <th>Job Title</th>
+            <th>Technology</th>
+            <th>Experience</th>
+            <th>Status</th>
+            <th>Applicants</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let job of jobs">
+
+            <td>{{ job.jobTitle }}</td>
+
+            <td>{{ job.skills }}</td>
+
+            <td>{{ job.experience }}</td>
+
+            <td>Active</td>
+
+            <td><button
+            mat-raised-button
+            color="primary"
+            (click) ="applicant(job.jobId)">         
+            View Applicants
+          </button></td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </mat-card>
+
+  </div>
+
+</div>
