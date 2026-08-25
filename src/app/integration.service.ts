@@ -152,4 +152,15 @@ export class IntegrationService {
     );
   }
 
+  submitInterviewFeedback(feedback:string,feedbackby:string):Observable<String>{
+    let httpParams = new HttpParams();
+    httpParams  = httpParams.append("feedbackfrom",feedbackby);
+    return this.http.post<string>(this.dashboardJobs,feedback,{params:httpParams}).pipe(
+    catchError((err) => {
+      console.error("Errr while fetching jobs");
+      return throwError(() => new Error("Error while fetching jobs"));
+      })
+    );  
+  }
+
 }

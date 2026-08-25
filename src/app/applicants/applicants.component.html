@@ -23,10 +23,17 @@
       <td>{{applicant.status}}</td>
       <td>{{applicant.applicationId}}</td>
       <td>{{applicant.jobId}}</td>
+      <td> Interview Current Status</td>
       <td>
         <button
           (click)="openScheduleInterview(applicant)">
           Schedule Interview
+        </button>
+      </td>
+      <td>
+        <button
+          (click)="updateInterviewFeedback(applicant)">
+          Interview Feedback
         </button>
       </td>
     </tr>

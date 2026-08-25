@@ -31,6 +31,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { LatestJobsComponent } from './latest-jobs/latest-jobs.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     EmployerdashboardComponent,
     ApplicantsComponent,
     InterviewComponent,
-    LatestJobsComponent
+    LatestJobsComponent,
+    InterviewFeedbackComponent
   ],
   imports: [
     BrowserModule,

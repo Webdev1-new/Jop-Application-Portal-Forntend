@@ -10,6 +10,7 @@ import { EmployerdashboardComponent } from './employerdashboard/employerdashboar
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { InterviewComponent } from './interview/interview.component';
 import { LatestJobsComponent } from './latest-jobs/latest-jobs.component';
+import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
 
 const routes: Routes = [
   {path: '' , component : HomeComponent, pathMatch: "full"},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: "applicants/:jobId" , component : ApplicantsComponent},
   {path: "interview" , component : InterviewComponent},
   {path: "latestjob" , component : LatestJobsComponent},
+  {path: "interview/feedaback" , component: InterviewFeedbackComponent},
   {path: "**" , component : HomeComponent }
 ];
 

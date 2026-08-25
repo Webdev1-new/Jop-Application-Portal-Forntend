@@ -38,4 +38,12 @@ export class ApplicantsComponent implements OnInit{
   }
 
 
+  updateInterviewFeedback(applicant:any) {  
+    console.log("providing interview feedback");
+    this.router.navigate(['/interview/feedback'],
+      { queryParams : {applicantId: applicant.applicationId , jobId : applicant.jobId , name  : applicant.name ,
+        email : applicant.email
+      }}
+    )
+  }
 }

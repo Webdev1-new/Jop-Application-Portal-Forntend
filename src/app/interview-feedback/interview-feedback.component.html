@@ -1,0 +1,482 @@
+<mat-card class="feedback-card">
+
+  <!-- Header -->
+  <mat-card-header>
+    <div mat-card-avatar class="candidate-avatar">JD</div>
+
+    <mat-card-title>Interview Feedback</mat-card-title>
+
+    <mat-card-subtitle>
+      Candidate: John Doe • Java Developer
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+
+    <!-- Progress -->
+    <div class="progress-strip">
+
+      <div class="step active">
+        <span class="step-number">1</span>
+        <span>TR</span>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="step">
+        <span class="step-number">2</span>
+        <span>MR</span>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="step">
+        <span class="step-number">3</span>
+        <span>HR</span>
+      </div>
+
+    </div>
+
+
+    <form
+      [formGroup]="interviewFeedbackForm"
+      (ngSubmit)="submitFeedback()">
+
+
+      <!-- ================= TR SECTION ================= -->
+
+      <section
+        class="round-section tr-section"
+        formGroupName="tr">
+
+        <div class="section-heading">
+
+          <div class="section-title-container">
+
+            <span class="round-badge">
+              TR
+            </span>
+
+            <div>
+              <h2>Technical Round</h2>
+
+              <p>
+                Evaluate technical knowledge, coding and
+                problem-solving ability.
+              </p>
+            </div>
+
+          </div>
+
+          <span class="status-badge active-status">
+            Current Round
+          </span>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- Decision -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Decision</mat-label>
+
+            <mat-select
+              formControlName="decision"
+              required>
+
+              <mat-option value="SELECT">
+                Select
+              </mat-option>
+
+              <mat-option value="REJECT">
+                Reject
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+
+          <!-- Rating -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Rating</mat-label>
+
+            <mat-select formControlName="rating">
+
+              <mat-option [value]="1">
+                1 - Poor
+              </mat-option>
+
+              <mat-option [value]="2">
+                2 - Below Average
+              </mat-option>
+
+              <mat-option [value]="3">
+                3 - Average
+              </mat-option>
+
+              <mat-option [value]="4">
+                4 - Good
+              </mat-option>
+
+              <mat-option [value]="5">
+                5 - Excellent
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <!-- Feedback -->
+
+        <mat-form-field
+          appearance="outline"
+          class="full-width">
+
+          <mat-label>
+            Technical Feedback
+          </mat-label>
+
+          <textarea
+            matInput
+            rows="4"
+            formControlName="feedback"
+            placeholder="Enter technical feedback...">
+          </textarea>
+
+           <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="tr.invalid"
+          (click)="saveTrFeedback()">
+
+          Submit Tr Feedback
+
+        </button>
+
+        </mat-form-field>
+
+      </section>
+
+
+
+      <!-- ================= MR SECTION ================= -->
+
+      <section
+        class="round-section disabled-section"
+        [class.enabled-section]="
+          interviewFeedbackForm.get('mr')?.enabled
+        "
+        formGroupName="mr">
+
+        <div class="section-heading">
+
+          <div class="section-title-container">
+
+            <span class="round-badge mr-badge">
+              MR
+            </span>
+
+            <div>
+
+              <h2>Managerial Round</h2>
+
+              <p>
+                Evaluate leadership, communication,
+                teamwork and decision making.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <span class="status-badge">
+            Locked until TR Select
+          </span>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- Decision -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Decision</mat-label>
+
+            <mat-select formControlName="decision">
+
+              <mat-option value="SELECT">
+                Select
+              </mat-option>
+
+              <mat-option value="REJECT">
+                Reject
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+
+          <!-- Rating -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Rating</mat-label>
+
+            <mat-select formControlName="rating">
+
+              <mat-option [value]="1">
+                1 - Poor
+              </mat-option>
+
+              <mat-option [value]="2">
+                2 - Below Average
+              </mat-option>
+
+              <mat-option [value]="3">
+                3 - Average
+              </mat-option>
+
+              <mat-option [value]="4">
+                4 - Good
+              </mat-option>
+
+              <mat-option [value]="5">
+                5 - Excellent
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <!-- Feedback -->
+
+        <mat-form-field
+          appearance="outline"
+          class="full-width">
+
+          <mat-label>
+            Managerial Feedback
+          </mat-label>
+
+          <textarea
+            matInput
+            rows="4"
+            formControlName="feedback"
+            placeholder="Enter managerial feedback...">
+          </textarea>
+
+          <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="mr.invalid"
+          (click)="saveMrFeedback()">
+
+          Submit Mr Feedback
+
+        </button>
+
+        </mat-form-field>
+
+      </section>
+
+
+
+      <!-- ================= HR SECTION ================= -->
+
+      <section
+        class="round-section disabled-section"
+        [class.enabled-section]="
+          interviewFeedbackForm.get('hr')?.enabled
+        "
+        formGroupName="hr">
+
+        <div class="section-heading">
+
+          <div class="section-title-container">
+
+            <span class="round-badge hr-badge">
+              HR
+            </span>
+
+            <div>
+
+              <h2>HR Round</h2>
+
+              <p>
+                Evaluate culture fit, expectations,
+                notice period and other HR details.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <span class="status-badge">
+            Locked until MR Select
+          </span>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- Decision -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Decision</mat-label>
+
+            <mat-select formControlName="decision">
+
+              <mat-option value="SELECT">
+                Select
+              </mat-option>
+
+              <mat-option value="REJECT">
+                Reject
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+
+          <!-- Rating -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Rating</mat-label>
+
+            <mat-select formControlName="rating">
+
+              <mat-option [value]="1">
+                1 - Poor
+              </mat-option>
+
+              <mat-option [value]="2">
+                2 - Below Average
+              </mat-option>
+
+              <mat-option [value]="3">
+                3 - Average
+              </mat-option>
+
+              <mat-option [value]="4">
+                4 - Good
+              </mat-option>
+
+              <mat-option [value]="5">
+                5 - Excellent
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <!-- Feedback -->
+
+        <mat-form-field
+          appearance="outline"
+          class="full-width">
+
+          <mat-label>
+            HR Feedback
+          </mat-label>
+
+          <textarea
+            matInput
+            rows="4"
+            formControlName="feedback"
+            placeholder="Enter HR feedback...">
+          </textarea>
+
+          <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="hr.invalid"
+          (click)="saveHrFeedback()">
+
+          Submit HR Feedback
+
+        </button>
+
+        </mat-form-field>
+
+      </section>
+
+
+
+      <!-- Information -->
+
+      <div class="final-note">
+
+        <mat-icon>
+          info
+        </mat-icon>
+
+        <span>
+          Each round must be completed sequentially.
+          If a candidate is rejected, the following
+          rounds remain locked.
+        </span>
+
+      </div>
+
+
+
+      <!-- Actions -->
+
+      <div class="actions">
+
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="cancel()">
+
+          Cancel
+
+        </button>
+
+
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="interviewFeedbackForm.invalid">
+
+          Submit Feedback
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>
