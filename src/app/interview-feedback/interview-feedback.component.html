@@ -158,7 +158,7 @@
           mat-flat-button
           color="primary"
           type="submit"
-          [disabled]="tr.invalid"
+          [disabled]="interviewFeedbackForm.get('tr')?.invalid"
           (click)="saveTrFeedback()">
 
           Submit Tr Feedback
@@ -288,7 +288,7 @@
           mat-flat-button
           color="primary"
           type="submit"
-          [disabled]="mr.invalid"
+          [disabled]="interviewFeedbackForm.get('mr')?.invalid"
           (click)="saveMrFeedback()">
 
           Submit Mr Feedback
@@ -418,9 +418,8 @@
           mat-flat-button
           color="primary"
           type="submit"
-          [disabled]="hr.invalid"
+          [disabled]="interviewFeedbackForm.get('hr')?.invalid"
           (click)="saveHrFeedback()">
-
           Submit HR Feedback
 
         </button>

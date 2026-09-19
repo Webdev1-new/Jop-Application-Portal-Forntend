@@ -275,7 +275,17 @@ export class InterviewFeedbackComponent {
     }; 
 
     this.restApi.submitInterviewFeedback(JSON.stringify(interviewFeedback) ,"tr").subscribe(
-      (data) => console.log(data),
+      (data) => {
+       if(data && this.interviewFeedbackForm.get('tr')?.get('decision')?.value === 'SELECT'){
+          console.log(data);
+          this.interviewFeedbackForm.get("mr")?.enable();
+          this.interviewFeedbackForm.get("hr")?.disable();
+
+        }else if (data && this.interviewFeedbackForm.get('tr')?.get('decision')?.value === 'REJECT') {
+          this.interviewFeedbackForm.get("mr")?.disable();
+          this.interviewFeedbackForm.get("mr")?.disable();
+        }
+      },
       (error) => console.log(error),
       () => console.log("TR ffedback completed successfully")
     );
@@ -301,7 +311,16 @@ export class InterviewFeedbackComponent {
       mrname : username ?? ''
     }; 
     this.restApi.submitInterviewFeedback(JSON.stringify(interviewFeedback) ,"mr").subscribe({
-      next : (data) => console.log(data),
+      next : (data) => {
+        if(data && this.interviewFeedbackForm.get('mr')?.get('decision')?.value == 'SELECT'){
+          console.log(data);
+          this.interviewFeedbackForm.get("hr")?.enable();
+        }else if(this.interviewFeedbackForm.get('mr')?.get('decision')?.value == 'REJECT'){
+            console.log(data);
+          this.interviewFeedbackForm.get("mr")?.disable();
+        }
+        
+      },
       error : (err)=> console.log(err),
       complete: ()=> console.log("complete")
     });
