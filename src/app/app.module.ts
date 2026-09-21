@@ -32,6 +32,7 @@ import { LatestJobsComponent } from './latest-jobs/latest-jobs.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
+import { JobapplicationstatusComponent } from './jobapplicationstatus/jobapplicationstatus.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { InterviewFeedbackComponent } from './interview-feedback/interview-feedb
     ApplicantsComponent,
     InterviewComponent,
     LatestJobsComponent,
-    InterviewFeedbackComponent
+    InterviewFeedbackComponent,
+    JobapplicationstatusComponent
   ],
   imports: [
     BrowserModule,

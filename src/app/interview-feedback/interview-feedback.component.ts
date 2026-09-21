@@ -10,7 +10,7 @@ import { LoggedInUser } from '../logged-in-user';
   templateUrl: './interview-feedback.component.html',
   styleUrls: ['./interview-feedback.component.css']
 })
-export class InterviewFeedbackComponent {
+export class InterviewFeedbackComponent implements OnInit{
 
 
   interviewFeedbackForm!: FormGroup;

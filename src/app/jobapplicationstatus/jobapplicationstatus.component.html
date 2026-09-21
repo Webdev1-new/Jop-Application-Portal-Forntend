@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>ApplicationId</th>
+            <th>JobId</th>
+            <th>JobDetail</th>
+            <th>ApplicationDate</th>
+            <th>CurrentStatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let details of jobapplicantdetails">
+            <td>{{details.aopplicationId}}</td>
+            <td>{{details.jobId}}</td>
+            <td>{{details.jobDetail}}</td>
+            <td>{{details.applicationDate}}</td>
+            <td>{{details.currentStatus}}</td>
+        </tr>
+    </tbody>
+</table>

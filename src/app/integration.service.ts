@@ -163,4 +163,21 @@ export class IntegrationService {
     );  
   }
 
+  fetchJobApplicationDetails():Observable<any[]> {
+       
+      let httpParams =   new HttpParams() ;
+      let username = localStorage.getItem("username");
+      if(username){
+         httpParams = httpParams.append("username",username);
+         httpParams.append("username",username) ; 
+      }      
+      return this.http.get<any[]>( "http://localhost:8080/",{params:httpParams}).pipe(
+        catchError((err) => {
+          return throwError(() => new Error("Error while fetching jobs"));
+        })
+      );
+       
+
+  }
+
 }
